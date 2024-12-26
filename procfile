@@ -1,1 +1,2 @@
-web: gunicorn holis.wsgi --log-file -
+gunicorn holis.wsgi:application --log-file -
+
