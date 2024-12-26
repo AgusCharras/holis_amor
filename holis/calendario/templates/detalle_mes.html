@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+</style>
+<div class="contenedor-tabla">
+    <h1>{{ mes.nombre }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Dom</th>
+                <th>Lun</th>
+                <th>Mar</th>
+                <th>Mié</th>
+                <th>Jue</th>
+                <th>Vie</th>
+                <th>Sáb</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for semana in semanas %}
+            <tr>
+                {% for dia in semana %}
+                <td class="{% if not dia %}empty{% elif dia.tiene_imagen %}con-imagen{% endif %}">
+                    {% if dia %}
+                    <a href="{% url 'detalle_dia' dia.id %}">
+                        <strong>{{ dia.numero }}</strong>
+                        {% if dia.tiene_imagen %}
+                        <span class="material-symbols-rounded">
+                            favorite
+                        </span>
+                        {% endif %}
+                    </a>
+                    {% endif %}
+                </>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="boton-1" href="{% url 'lista_meses' %}">Volver</a>
+</div>
+{% endblock %}

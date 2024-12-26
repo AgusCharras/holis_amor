@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="contenedor-dia">
+    <h1>Día {{ dia.numero }} de {{ dia.mes.nombre }}</h1>
+    {% if dia.imagen %}
+    <div class="contenedor-imagen">
+        <img class="imagen-dia" src="{{ dia.imagen.url }}" alt="Imagen del día">
+    </div>
+    {% endif %}
+    <p>{{ dia.texto }}</p>
+    <a href="{% url 'detalle_mes' dia.mes.id %}">Volver al mes</a>
+</div>
+
+{% endblock %}
