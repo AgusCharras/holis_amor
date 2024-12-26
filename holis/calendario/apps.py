@@ -6,4 +6,4 @@ class CalendarioConfig(AppConfig):
     name = 'holis.calendario'
     
     def ready(self):
-        import calendario.signals
+        import holis.calendario.signals
